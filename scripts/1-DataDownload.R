@@ -21,7 +21,6 @@ da_raw <- download_shp("https://www12.statcan.gc.ca/census-recensement/2021/geo/
                        "input/da_raw.zip")
 
 
-
 # Canopy ------------------------------------------------------------------
 
 can_2021 <- download_tif("https://observatoire.cmm.qc.ca/documents/carte/canope/2021/IC_TIFF/660_IndiceCanopee_2021_TIF.zip",
@@ -37,3 +36,10 @@ census_raw <- download_csv("https://www12.statcan.gc.ca/census-recensement/2021/
 
 
 
+# Save --------------------------------------------------------------------
+
+saveRDS(arrondissements, 'output/arrondissements.rds')
+saveRDS(quartiers, 'output/quartiers.rds')
+saveRDS(da_raw, 'output/da_raw.rds')
+saveRDS(can_2021, 'output/can_2021.rds')
+saveRDS(census_raw, 'output/census_raw.rds')
