@@ -1,5 +1,6 @@
 library(sf)
-library(stars)
+library(terra)
+library(exactextractr)
 
 library(dplyr)
 library(tidyr)
