@@ -13,8 +13,8 @@ download_file <- function(url, dest){
 
 download_tif <- function(url, dest, file){
   download.file(url, dest)
-  star <- read_stars(file.path("/vsizip", dest, file))
-  return(star)
+  r <- rast(file.path("/vsizip", dest, file))
+  return(r)
 }
 
 
