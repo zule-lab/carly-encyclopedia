@@ -44,6 +44,7 @@ census_da_w <- census_da_f %>% pivot_wider(names_from = sofac, values_from = son
 census_da_r <- census_da_w %>%
   rename(totpop = "1") %>%
   rename(popdens = "6") %>%
+  rename(area = "7") %>% 
   rename(medinc = "115") %>% 
   rename(totvismin = "1683") %>% 
   rename(vismin = "1684")
@@ -60,3 +61,7 @@ census_da_na <- census_da_sf %>%
 can_cen_pp <- census_da_na %>% 
   mutate(per_vismin = vismin/totvismin)
 
+
+# Save --------------------------------------------------------------------
+
+saveRDS(can_cen_pp, 'output/census.rds')
