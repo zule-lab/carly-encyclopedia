@@ -4,6 +4,7 @@
 # Prep --------------------------------------------------------------------
 
 source('R/packages.R')
+source('R/plot_map.R')
 
 # cleaned data
 census <- readRDS('output/census.rds')
@@ -37,12 +38,13 @@ scatter <- ggplot(data = scatt, aes(x = values, y = mean_lst)) +
 
 # three maps: Parc-Ex, Rosemont, Westmount
 
-
-ggplot() + 
-  geom_spatraster(data = westmount, aes(fill = `660_IndiceCanopee_2021`), 
-                  na.rm = T, 
-                  show.legend = F) + 
-  scale_fill_continuous(na.value = NA)
+w <- plot_map(westmount)
+r <- plot_map(rosemont)
+pe <- plot_map(parcex)
 
 
+
+# Full --------------------------------------------------------------------
+
+scatter / (w + r + pe) 
 
