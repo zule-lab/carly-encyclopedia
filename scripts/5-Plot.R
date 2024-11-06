@@ -22,8 +22,6 @@ scatt <- left_join(census, satellite, by = join_by(da == DAUID)) %>%
   pivot_longer(cols = c(per_vismin, medinc, mean_ndvi), names_to = "independent", values_to = "values") %>% 
   select(c(da, mean_lst, independent, values))
 
-
-
 # Scatterplots  -----------------------------------------------------------
 
 scatter <- ggplot(data = scatt, aes(x = values, y = mean_lst)) + 
@@ -46,5 +44,6 @@ pe <- plot_map(parcex, -73.648, -73.618, 45.524, 45.535)
 
 # Full --------------------------------------------------------------------
 
-scatter / (w + r + pe) 
+f <- scatter / (w + r + pe + plot_layout(widths = c(1, 1, 1)))
 
+ggsave('graphics/draft.png', f, width = 12, height = 10, units = 'in')
