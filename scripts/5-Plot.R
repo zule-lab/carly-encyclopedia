@@ -38,9 +38,9 @@ scatter <- ggplot(data = scatt, aes(x = values, y = mean_lst)) +
 
 # three maps: Parc-Ex, Rosemont, Westmount
 
-w <- plot_map(westmount)
-r <- plot_map(rosemont)
-pe <- plot_map(parcex)
+w <- plot_map(westmount, -73.616, -73.587, 45.4755, 45.495)
+r <- plot_map(rosemont, -73.6, -73.55, 45.541, 45.58)
+pe <- plot_map(parcex, -73.648, -73.618, 45.524, 45.535)
 
 
 
