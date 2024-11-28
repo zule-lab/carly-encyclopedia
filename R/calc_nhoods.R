@@ -25,9 +25,9 @@ calc_nhoods <- function(arrond, quartiers, census, satellite){
   nhood_da_sat <- nhood_da %>% 
     left_join(., satellite, by = "DAUID") %>% 
     filter(mean_ndvi > -1 & mean_ndvi < 1) %>% 
-    pivot_longer(cols = c(per_vismin, medinc, mean_ndvi), names_to = "independent", values_to = "values") %>% 
+    pivot_longer(cols = c(per_vismin, houseinc, mean_ndvi), names_to = "independent", values_to = "values") %>% 
     select(c(NOM.x, DAUID, mean_lst, independent, values)) %>% 
-    mutate(NOM = NOM.x)
+    rename(NOM = NOM.x)
   
   return(nhood_da_sat)
   
