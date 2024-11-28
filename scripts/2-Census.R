@@ -24,7 +24,7 @@ census_da_f <- census_raw %>%
          sonum = "C1_COUNT_TOTAL") %>%
   mutate(DAUID = as.character(DAUID)) %>% 
   right_join(study_da, by = "DAUID") %>%
-  filter(sofac %in% c(1, 6:7, 115, 1683:1684)) 
+  filter(sofac %in% c(1, 6:7, 115, 243, 1683:1684)) 
 
 # we are interested in income and visible minorities 
 
@@ -34,6 +34,7 @@ census_da_f <- census_raw %>%
 
 # Income statistics in 2020 for the population aged 15 years and over in private households - 100% data (10)
 # 115   Median after-tax income in 2020 among recipients ($)
+# 243   Median total income of household in 2020 ($)
 
 # 1683	Total - Visible minority for the population in private households - 25% sample data (117)
 # 1684	  Total visible minority population (118)
@@ -46,6 +47,7 @@ census_da_r <- census_da_w %>%
   rename(popdens = "6") %>%
   rename(area = "7") %>% 
   rename(medinc = "115") %>% 
+  rename(houseinc = "243") %>%
   rename(totvismin = "1683") %>% 
   rename(vismin = "1684")
 
